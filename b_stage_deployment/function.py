@@ -1,6 +1,6 @@
 from functools import lru_cache
 
-from aws_cdk.aws_iam import PolicyStatement, ServicePrincipal
+from aws_cdk.aws_iam import PolicyStatement
 from aws_cdk.aws_lambda import Code, SingletonFunction, Runtime
 from aws_cdk.core import Stack
 
@@ -15,6 +15,12 @@ class StageDeploymentSingletonFunction(SingletonFunction):
             scope: Stack,
             name: str
     ) -> None:
+        """
+        Constructor.
+
+        :param scope: CloudFormation stack in which this function will be deployed.
+        :param name: The name of the function.
+        """
         self.__name = name
 
         super().__init__(
@@ -36,9 +42,19 @@ class StageDeploymentSingletonFunction(SingletonFunction):
 
     @lru_cache
     def __code(self) -> Code:
+        """
+        Gets (and caches) source code cor the lambda function.
+
+        :return: Lambda function source code (as an asset).
+        """
         from .source import root
         return Code.from_asset(root)
 
     @property
-    def function_name(self):
+    def function_name(self) -> str:
+        """
+        Overrides original function_name function so the method would not create a dependency.
+
+        :return: Name of the function.
+        """
         return self.__name
