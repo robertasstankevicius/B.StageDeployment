@@ -28,12 +28,14 @@ setup(
     long_description_content_type='text/markdown',
     include_package_data=True,
     install_requires=[
-        'aws-cdk.core>=1.54.0,<2.0.0',
-        'aws-cdk.aws-apigatewayv2>=1.54.0,<2.0.0',
-        'aws-cdk.aws-lambda>=1.54.0,<2.0.0',
-        'boto3>=1.10.46,<1.16.0',
+        'boto3>=1.16.0,<2.0.0',
         'pytest>=6.0.2,<7.0.0',
-        'b-aws-testing-framework>=0.0.13,<1.0.0'
+        'b-aws-testing-framework>=0.0.24,<1.0.0',
+
+        # AWS CDK.
+        'aws-cdk.core>=1.75.0,<2.0.0',
+        'aws-cdk.aws-apigatewayv2>=1.75.0,<2.0.0',
+        'aws-cdk.aws-lambda>=1.75.0,<2.0.0',
     ],
     author='Laimonas Sutkus',
     author_email='laimonas.sutkus@biomapas.com',

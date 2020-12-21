@@ -1,5 +1,8 @@
 # Release history
 
+### 0.0.3
+* Update boto3 requirement.
+
 ### 0.0.2
 * Add more docstrings.
 
