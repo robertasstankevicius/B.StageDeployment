@@ -1,5 +1,8 @@
 # Release history
 
+### 0.0.4
+* Increase the function timeout.
+
 ### 0.0.3
 * Update boto3 requirement.
 
