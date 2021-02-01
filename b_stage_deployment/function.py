@@ -2,7 +2,7 @@ from functools import lru_cache
 
 from aws_cdk.aws_iam import PolicyStatement
 from aws_cdk.aws_lambda import Code, SingletonFunction, Runtime
-from aws_cdk.core import Stack
+from aws_cdk.core import Stack, Duration
 
 
 class StageDeploymentSingletonFunction(SingletonFunction):
@@ -31,6 +31,7 @@ class StageDeploymentSingletonFunction(SingletonFunction):
             code=self.__code(),
             handler='index.handler',
             runtime=Runtime.PYTHON_3_8,
+            timeout=Duration.minutes(1),
         )
 
         # Add permission to create deployments. Since this is a singleton lambda function,
