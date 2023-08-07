@@ -1,4 +1,4 @@
-from aws_cdk.core import Stack, CustomResource, RemovalPolicy
+from aws_cdk import Stack, CustomResource, RemovalPolicy
 
 from b_stage_deployment.function import StageDeploymentSingletonFunction
 

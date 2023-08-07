@@ -1,8 +1,8 @@
 from aws_cdk.aws_apigatewayv2 import CfnApi, CfnStage, CfnRoute, CfnIntegration
 from aws_cdk.aws_lambda import Function, Code, Runtime
-from aws_cdk.core import Construct
 from b_aws_testing_framework.tools.cdk_testing.testing_manager import TestingManager
 from b_aws_testing_framework.tools.cdk_testing.testing_stack import TestingStack
+from constructs import Construct
 
 from b_stage_deployment.function import StageDeploymentSingletonFunction
 from b_stage_deployment.resource import StageDeploymentResource
@@ -49,12 +49,12 @@ class TestingInfrastructure(TestingStack):
                 '    }\n'
             ),
             handler='index.handler',
-            runtime=Runtime.PYTHON_3_6,
+            runtime=Runtime.PYTHON_3_8,
         )
 
         integration = CfnIntegration(
             scope=self,
-            id=f'{TestingManager.get_global_prefix()}LambdaIntegration',
+            id=f'{prefix}LambdaIntegration',
             api_id=api.ref,
             integration_type='AWS_PROXY',
             integration_uri=(
@@ -73,7 +73,7 @@ class TestingInfrastructure(TestingStack):
             target=f'integrations/{integration.ref}'
         )
 
-        backend = StageDeploymentSingletonFunction(self, 'DeploymentBackend')
+        backend = StageDeploymentSingletonFunction(self, f'{prefix}DeploymentBackend')
 
         # Make some deployments.
         StageDeploymentResource(self, 'C1', backend, api.ref, stage.stage_name, 'Sample1.')

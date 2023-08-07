@@ -1,8 +1,8 @@
 from functools import lru_cache
 
+from aws_cdk import Stack, Duration
 from aws_cdk.aws_iam import PolicyStatement
 from aws_cdk.aws_lambda import Code, SingletonFunction, Runtime
-from aws_cdk.core import Stack, Duration
 
 
 class StageDeploymentSingletonFunction(SingletonFunction):
