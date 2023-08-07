@@ -28,6 +28,8 @@ jobs:
         run: |
           npm install -g aws-cdk
           pip install . --upgrade
+          pip install -r b_stage_deployment_test/requirements.txt
+          
           pip list
 
       - name: Test
