@@ -1,8 +1,8 @@
 import os
 import sys
-
 from os.path import dirname as dn
-from aws_cdk.core import App
+
+from aws_cdk import App
 
 """
 Import main stack.

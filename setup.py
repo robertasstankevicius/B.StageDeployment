@@ -29,13 +29,10 @@ setup(
     include_package_data=True,
     install_requires=[
         'boto3>=1.16.0,<2.0.0',
-        'pytest>=6.0.2,<7.0.0',
-        'b-aws-testing-framework>=0.0.24,<1.0.0',
 
         # AWS CDK.
-        'aws-cdk.core>=1.75.0,<2.0.0',
-        'aws-cdk.aws-apigatewayv2>=1.75.0,<2.0.0',
-        'aws-cdk.aws-lambda>=1.75.0,<2.0.0',
+        'aws-cdk-lib>=2.0.0,<3.0.0',
+        'aws-cdk-constructs>=2.0.0,<3.0.0',
     ],
     author='Laimonas Sutkus',
     author_email='laimonas.sutkus@biomapas.com',

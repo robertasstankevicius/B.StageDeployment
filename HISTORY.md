@@ -1,5 +1,11 @@
 # Release history
 
+### 1.0.0
+* Upgrade CDK support from v1 to v2.
+* Upgrade GitHub pipelines checkout version from v2 to v3.
+* Set GitHub pipelines node version 18.
+* Set GitHub pipelines python version 3.10.
+
 ### 0.0.4
 * Increase the function timeout.
 
